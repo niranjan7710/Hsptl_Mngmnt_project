@@ -3,6 +3,7 @@ from tkinter import messagebox
 import mysql.connector
 
 
+
 def loginpage():
     root = Tk()
     root.state('zoomed')
@@ -55,9 +56,9 @@ def loginpage():
         try:
             if con.is_connected():
                 messagebox.showinfo("Success", "Welcome to Hospital Management")
-       #     else:
+    #     else:
         #       Label(lblfrm,bg="black",fg="white",text="Incorrect Login Credentials! Try again.",font = ("Cascadia Code",20,"bold",),justify=CENTER  ,cursor="xterm").place(x=520,y=380)
-         #       label.config(text="Invalid username or password")
+        #       label.config(text="Invalid username or password")
         except EOFError():
             Label(lblfrm,bg="black",fg="white",text="Incorrect Login Credentials! Try again.",font = ("Cascadia Code",20,"bold",),justify=CENTER  ,cursor="xterm").place(x=520,y=380)
                 
@@ -75,8 +76,6 @@ def loginpage():
     #       messagebox.showinfo("Success","login Success")#    
     #  else:
     #        messagebox.showinfo("Error","Incorrect login credentials",)
-
-
 
 
     root.mainloop()
