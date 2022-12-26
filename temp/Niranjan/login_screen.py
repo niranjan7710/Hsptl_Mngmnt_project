@@ -1,17 +1,9 @@
 from tkinter import *
 from tkinter import messagebox
-from PIL import Image, ImageTk
 import mysql.connector
 
 
 def loginpage():
-        
-
-    #def logintodb(user,passw):
-        
-
-        
-
     root = Tk()
     root.state('zoomed')
     root.title("Login")
@@ -45,6 +37,7 @@ def loginpage():
     entry2.place(x=550,y=280,width=290,height=33)
 
 
+
     def login():
         user = entry1.get()
         passw = entry2.get()
@@ -59,12 +52,15 @@ def loginpage():
     #        messagebox.showinfo("Success", "Successfully connected to MySQL")
     #    else:
     #        messagebox.showinfo("Error", "Incorrect login credentials")
-        if con.is_connected():
+        try:
+            if con.is_connected():
                 messagebox.showinfo("Success", "Welcome to Hospital Management")
-        else:
-                messagebox.showinfo("Error", "Incorrect login credentials")
-
-
+       #     else:
+        #       Label(lblfrm,bg="black",fg="white",text="Incorrect Login Credentials! Try again.",font = ("Cascadia Code",20,"bold",),justify=CENTER  ,cursor="xterm").place(x=520,y=380)
+         #       label.config(text="Invalid username or password")
+        except EOFError():
+            Label(lblfrm,bg="black",fg="white",text="Incorrect Login Credentials! Try again.",font = ("Cascadia Code",20,"bold",),justify=CENTER  ,cursor="xterm").place(x=520,y=380)
+                
 
 
     button_login= Button(root,text="login",command=login,height=3,width=13,bd=7,bg="#2b2d42",fg="white",cursor="hand2",activebackground='#2b2d42',activeforeground="white")
@@ -85,3 +81,6 @@ def loginpage():
 
     root.mainloop()
 
+
+
+loginpage()
